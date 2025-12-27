@@ -26,7 +26,12 @@ module.exports = (srv) => {
           salesOrderItemApi.schema.REQUESTED_QUANTITY_UNIT,
           salesOrderItemApi.schema.TAX_AMOUNT,
           salesOrderItemApi.schema.COST_AMOUNT,
-          salesOrderItemApi.schema.MATERIAL
+          salesOrderItemApi.schema.MATERIAL,
+          salesOrderItemApi.schema.SALES_ORDER_ITEM_CATEGORY,
+          salesOrderItemApi.schema.PRICING_DATE
+        
+          
+          
         )
         .filter(
           salesOrderItemApi.schema.SALES_ORDER.equals(salesOrderID)
@@ -44,7 +49,9 @@ module.exports = (srv) => {
         TaxAmount: item.taxAmount,
         CostAmount: item.costAmount,
         OrderQuantitySAPUnit: item.orderQuantitySapUnit,
-        Material: item.material
+        Material: item.material,
+        SalesOrderItemCategory:item.salesOrderItemCategory,
+        PricingDate:item.pricingDate
 
       }));
 

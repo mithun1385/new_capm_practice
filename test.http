@@ -5,10 +5,3 @@ http://localhost:4004/odata/V4/Catalog/readInvoiceNumber(salesOrderID='2')
 
 
 
-### Call readInvoiceNumber action
-POST http://localhost:4004/odata/v4/catalog/readInvoiceNumber
-Content-Type: application/json
-
-{
-  "salesOrderID": "2"
-}
