@@ -14,7 +14,6 @@ module.exports = (srv) => {
         apikey: '026haFAFErgJV49jVzwd46jaeXXRn0yk'
       }
     };
-
     try {
       const result = await salesOrderItemApi
         .requestBuilder()
