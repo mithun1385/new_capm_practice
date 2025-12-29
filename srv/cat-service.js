@@ -60,3 +60,65 @@ module.exports = (srv) => {
     }
   });
 };
+
+
+
+// module.exports = (srv) => {
+
+//   srv.on('readInvoiceNumber', async (req) => {
+
+//     const salesOrderID = String(req.data.salesOrderID).padStart(10, '0');
+
+//     const { apiSalesOrderSrv } = require('../srv/generated/API_SALES_ORDER_SRV');
+//     const { salesOrderHeaderPartnerApi } = apiSalesOrderSrv();
+
+//     const sdkDest = {
+//       url: 'https://sandbox.api.sap.com/s4hanacloud',
+//       headers: {
+//         apikey: '026haFAFErgJV49jVzwd46jaeXXRn0yk'
+//       }
+//     };
+//     try {
+//       const result = await salesOrderHeaderPartnerApi
+//         .requestBuilder()
+//         .getAll()
+//         .select(
+//           salesOrderHeaderPartnerApi.schema.CUSTOMER,
+//            salesOrderHeaderPartnerApi.schema.PARTNER_FUNCTION,
+//           salesOrderHeaderPartnerApi.schema.PARTNER_FUNCTION_INTERNAL_CODE,
+//           salesOrderHeaderPartnerApi.schema.CUSTOMER,
+//           salesOrderHeaderPartnerApi.schema.SUPPLIER,
+//           salesOrderHeaderPartnerApi.schema.PERSONNEL,
+//           salesOrderHeaderPartnerApi.schema.CONTACT_PERSON,
+//           salesOrderHeaderPartnerApi.schema.REFERENCE_BUSINESS_PARTNER,
+//           salesOrderHeaderPartnerApi.schema.ADDRESS_ID
+          
+          
+//         )
+//         .filter(
+//           salesOrderHeaderPartnerApi.schema.SALES_ORDER.equals(salesOrderID)
+//         )
+//         .execute(sdkDest);
+
+//       console.log('S/4 result:', result);
+
+//       // ✅ MAP EXACTLY TO CDS RETURN TYPE
+//       return result.map(item => ({
+//         customer: item.customer,
+//         PartnerFunction: item.partnerFunction,
+//         PartnerFunctionInternalCode: item.partnerFunctionInternalCode,
+//         Customer: item.customer,
+//         Supplier: item.supplier,
+//         Personnel: item.personnel,
+//         ContactPerson: item.contactPerson,
+//         ReferenceBusinessPartner: item.referenceBusinessPartner,
+//         AddressID: item.addressId
+
+//       }));
+
+//     } catch (err) {
+//       console.error('S/4 Error:', err.rootCause?.response?.data);
+//       req.reject(500, 'Failed to fetch sales order Items from S/4 HANA');
+//     }
+//   });
+// };
